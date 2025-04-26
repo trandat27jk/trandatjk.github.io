@@ -1,105 +1,111 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dat Tran Van | AI Researcher</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+      }
+      .animate-fade-in {
+        animation: fadeIn 1s ease-in-out;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+    <script>
+      function showTab(tabId) {
+        document.querySelectorAll('main > section').forEach(section => section.classList.add('hidden'));
+        const tab = document.getElementById(tabId);
+        if (tab) tab.classList.remove('hidden');
+      }
+      document.addEventListener('DOMContentLoaded', () => showTab('home'));
+    </script>
+  </head>
 
-<head>
-  <title>My Site</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-  <style>
-    body, h1 {
-      font-family: "Raleway", sans-serif;
-    }
+  <body class="font-inter bg-gray-900 text-white">
 
-    body, html {
-      height: 100%;
-      margin: 0;
-    }
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 flex justify-between items-center px-6 py-4 bg-black bg-opacity-60 backdrop-blur z-50">
+      <div class="text-xl font-bold text-orange-400">DatTV</div>
+      <div class="hidden md:flex gap-6 text-lg font-semibold">
+        <a href="#" onclick="showTab('home')" class="hover:text-orange-400">HOME</a>
+        <a href="#" onclick="showTab('info')" class="hover:text-orange-400">INFORMATION</a>
+        <a href="#" onclick="showTab('projects')" class="hover:text-orange-400">PROJECTS</a>
+        <a href="#" onclick="showTab('contact')" class="hover:text-orange-400">CONTACT</a>
+      </div>
+      <div class="md:hidden">
+        <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
 
-    .bgimg {
-      background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&auto=format&fit=crop&q=80');
-      min-height: 100vh;
-      background-position: center;
-      background-size: cover;
-    }
-
-    .info-section {
-      display: none;
-      background-color: rgba(0, 0, 0, 0.8);
-      color: white;
-      padding: 30px;
-      max-width: 800px;
-      margin: 40px auto;
-      border-radius: 10px;
-    }
-
-    .nav-bar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- NAV BAR -->
-  <div class="w3-bar w3-black nav-bar">
-    <a href="#" class="w3-bar-item w3-button" onclick="showHome()">Home</a>
-    <a href="#" class="w3-bar-item w3-button" onclick="toggleInfo()">Information</a>
-  </div>
-
-  <!-- MAIN CONTENT -->
-  <div id="homeSection" class="bgimg w3-display-container w3-animate-opacity w3-text-white" style="padding-top:48px;">
-    <div class="w3-display-topleft w3-padding-large w3-xlarge">
-      My Awesome Brand
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-gray-800 text-center py-4 md:hidden z-40">
+      <a href="#" onclick="showTab('home')" class="block py-2 hover:text-orange-400">HOME</a>
+      <a href="#" onclick="showTab('info')" class="block py-2 hover:text-orange-400">INFORMATION</a>
+      <a href="#" onclick="showTab('projects')" class="block py-2 hover:text-orange-400">PROJECTS</a>
+      <a href="#" onclick="showTab('contact')" class="block py-2 hover:text-orange-400">CONTACT</a>
     </div>
-    <div class="w3-display-middle">
-      <h1 class="w3-jumbo w3-animate-top">COMING SOON</h1>
-    </div>
-  </div>
 
-  <!-- INFORMATION SECTION -->
-  <div id="infoSection" class="info-section">
-    <h2>About Me</h2>
-    <p><strong>Research Interests:</strong> Large Language Models (LLMs), Multimodal Deep Learning, Computer Vision, Reinforcement Learning, and the intersection of AI and Neuroscience.</p>
+    <!-- Sections -->
+    <main class="space-y-24">
 
-    <p><strong>Education:</strong><br>
-      BSc in Computer Science, VN-UK Institute (GPA: 3.80/4.00)<br>
-      Graduation Thesis: NeuronCLIP (Supervised by Dr. Ngo Hoang Gia, Cornell University & Dr. Tran The Vu)
-    </p>
+      <!-- Home Section -->
+      <section id="home" class="w-screen h-screen bg-cover bg-center bg-no-repeat flex justify-center items-center text-center animate-fade-in" style="background-image: url('background.png');">
+        <div class="bg-black bg-opacity-60 p-10 rounded-xl text-white w-full max-w-3xl mx-4">
+          <h1 class="text-5xl md:text-7xl font-extrabold mb-4">Dat Tran Van</h1>
+          <p class="text-xl md:text-2xl">AI Researcher | Software Engineer | Neuroscience Enthusiast</p>
+        </div>
+      </section>
 
-    <p><strong>Experience:</strong><br>
-      AI/ML Intern at NGV Corp (NLP, RAG, text classification)<br>
-      Student Researcher in Foundation Models, Vision Transformers, and Multimodal Learning at VN-UK
-    </p>
+      <!-- Information Section -->
+      <section id="info" class="hidden animate-fade-in px-6 md:px-16">
+        <h2 class="text-3xl font-bold text-orange-400 border-b border-orange-400 pb-2 mb-6">Information</h2>
+        <p><strong>Education:</strong> BSc in Computer Science, VN-UK Institute</p>
+        <p><strong>GPA:</strong> 3.80/4.00</p>
+        <p><strong>Thesis:</strong> NeuronCLIP – Contrastive Alignment of 3D Brain Activations and Natural Language</p>
+      </section>
 
-    <p><strong>Selected Projects:</strong><br>
-      - NeuronCLIP: Text-to-brain retrieval model<br>
-      - ChatGPT-2: FlashAttention-based training<br>
-      - DatGPT Series (1, 1.5): Custom GPT models with CUDA optimization<br>
-      - Infinity Transformer, Differential Transformer, Routing Transformer
-    </p>
-  </div>
+      <!-- Projects Section -->
+      <section id="projects" class="hidden animate-fade-in px-6 md:px-16">
+        <h2 class="text-3xl font-bold text-orange-400 border-b border-orange-400 pb-2 mb-6">Projects</h2>
+        <ul class="grid md:grid-cols-2 gap-6 list-disc pl-6">
+          <li>NeuronCLIP – Aligns scientific text and 3D brain activity</li>
+          <li>ChatGPT-2 – Transformer with FlashAttention</li>
+          <li>DatGPT-1.5 – Retentive model trained on FineWeb (1B params)</li>
+          <li><a href="https://github.com/trandat27jk" target="_blank" class="text-orange-400 underline">See more on GitHub</a></li>
+        </ul>
+      </section>
 
-  <script>
-    function toggleInfo() {
-      const info = document.getElementById("infoSection");
-      const home = document.getElementById("homeSection");
-      info.style.display = "block";
-      home.style.display = "none";
-    }
+      <!-- Contact Section -->
+      <section id="contact" class="hidden animate-fade-in px-6 md:px-16">
+        <h2 class="text-3xl font-bold text-orange-400 border-b border-orange-400 pb-2 mb-6">Contact</h2>
+        <form class="space-y-4 max-w-xl">
+          <input type="text" placeholder="Your Name" class="w-full px-4 py-2 rounded bg-gray-800 border border-gray-700 text-white" />
+          <input type="email" placeholder="Your Email" class="w-full px-4 py-2 rounded bg-gray-800 border border-gray-700 text-white" />
+          <textarea rows="4" placeholder="Message" class="w-full px-4 py-2 rounded bg-gray-800 border border-gray-700 text-white"></textarea>
+          <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded">Send</button>
+        </form>
+      </section>
 
-    function showHome() {
-      const info = document.getElementById("infoSection");
-      const home = document.getElementById("homeSection");
-      info.style.display = "none";
-      home.style.display = "block";
-    }
-  </script>
-
-</body>
-
+    </main>
+  </body>
 </html>
